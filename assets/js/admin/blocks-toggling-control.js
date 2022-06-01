@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import editorLifecycle from '../../shared/helpers/editor-lifecycle';
+import EditorWizardModal from '../../admin/editor-wizard/editor-wizard-modal';
 
 // Sensei blocks by post type.
 const SENSEI_BLOCKS = {
@@ -137,6 +138,12 @@ export const startBlocksTogglingControl = ( postType ) => {
 							label: __( 'Learn more', 'sensei-lms' ),
 							url:
 								'https://senseilms.com/documentation/course-page-blocks/',
+						},
+						{
+							label: __( 'Use a pattern', 'sensei-lms' ),
+							onClick: () => {
+								editPostDispatcher.setIsInserterOpened( true );
+							},
 						},
 					],
 				}
